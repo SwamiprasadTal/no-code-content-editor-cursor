@@ -2,11 +2,15 @@
 
 ## AI Design Journey
 
-This document chronicles the key decision points and how AI was used to evaluate alternatives during the development of Aura.
-
 - Project bootstrapped with React + TypeScript + Vite
 - Directory cleaned and re-initialized for a fresh start
 - Folder structure and documentation planned for maintainability
 - Dark theme and custom drag-and-drop (no libraries) established as requirements
-
-*Further entries will be added as the project progresses.*
+- Three-panel layout (Palette, Canvas, Properties) implemented
+- Palette, Canvas, and Properties panels made modular and extensible
+- Custom drag-and-drop and selection logic built from scratch
+- Properties panel dynamically updates based on selection
+- Preview and HTML export features added
+- Test suite created and iteratively fixed for robust coverage
+- All major flows and requirements validated with automated tests
+- All design and implementation decisions were discussed and iterated with the AI assistant
