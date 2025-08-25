@@ -1,0 +1,47 @@
+body {
+  background: #181a1b;
+  color: #f3f3f3;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.aura-root {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background: #181a1b;
+}
+
+.aura-panel {
+  padding: 24px;
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  background: #23272f;
+  border-right: 1px solid #23272f;
+}
+
+.aura-palette {
+  width: 20vw;
+  min-width: 220px;
+  max-width: 320px;
+  border-right: 1px solid #22242a;
+}
+
+.aura-canvas {
+  width: 60vw;
+  min-width: 400px;
+  border-right: 1px solid #22242a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #181a1b;
+}
+
+.aura-properties {
+  width: 20vw;
+  min-width: 220px;
+  max-width: 320px;
+  border-right: none;
+}
