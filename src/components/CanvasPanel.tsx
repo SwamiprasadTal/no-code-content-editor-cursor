@@ -237,48 +237,53 @@ const CanvasPanel = ({ components, setComponents, selectedId, setSelectedId }: {
   };
 
   return (
-    <div
-      ref={canvasRef}
-      className="aura-canvas-inner"
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '100%',
-        minHeight: 400,
-        background: '#181a1b',
-        border: '1px dashed #444',
-        borderRadius: 12,
-      }}
-      onDrop={handleDrop}
-      onDragOver={handleDragOver}
-      onClick={handleCanvasClick}
-    >
-      {components.map((comp) => (
-        <div
-          key={comp.id}
-          ref={el => (compRefs.current[comp.id] = el)}
-          style={{
-            position: 'absolute',
-            left: comp.x,
-            top: comp.y,
-            background: selectedId === comp.id ? '#2d3748' : '#23272f',
-            color: '#f3f3f3',
-            padding: 12,
-            borderRadius: 8,
-            border: selectedId === comp.id ? '2px solid #4fd1c5' : '1px solid #333',
-            minWidth: 80,
-            textAlign: 'center',
-            cursor: draggingIdRef.current === comp.id ? 'grabbing' : 'pointer',
-            userSelect: 'none',
-            zIndex: selectedId === comp.id ? 2 : 1,
-            boxShadow: selectedId === comp.id ? '0 0 0 2px #4fd1c533' : undefined,
-          }}
-          onMouseDown={(e) => handleMouseDown(e, comp.id, comp.x, comp.y)}
-          onClick={(e) => { e.stopPropagation(); setSelectedId(comp.id); }}
-        >
-          {renderComponent(comp)}
-        </div>
-      ))}
+    <div style={{ height: '100%', width: '100%' }}>
+      <h2>Canvas</h2>
+      <div
+        ref={canvasRef}
+        className="aura-canvas-inner"
+        data-testid="aura-canvas-inner"
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '100%',
+          minHeight: 400,
+          background: '#181a1b',
+          border: '1px dashed #444',
+          borderRadius: 12,
+        }}
+        onDrop={handleDrop}
+        onDragOver={handleDragOver}
+        onClick={handleCanvasClick}
+      >
+        {components.map((comp) => (
+          <div
+            key={comp.id}
+            ref={el => (compRefs.current[comp.id] = el)}
+            data-testid="canvas-component"
+            style={{
+              position: 'absolute',
+              left: comp.x,
+              top: comp.y,
+              background: selectedId === comp.id ? '#2d3748' : '#23272f',
+              color: '#f3f3f3',
+              padding: 12,
+              borderRadius: 8,
+              border: selectedId === comp.id ? '2px solid #4fd1c5' : '1px solid #333',
+              minWidth: 80,
+              textAlign: 'center',
+              cursor: draggingIdRef.current === comp.id ? 'grabbing' : 'pointer',
+              userSelect: 'none',
+              zIndex: selectedId === comp.id ? 2 : 1,
+              boxShadow: selectedId === comp.id ? '0 0 0 2px #4fd1c533' : undefined,
+            }}
+            onMouseDown={(e) => handleMouseDown(e, comp.id, comp.x, comp.y)}
+            onClick={(e) => { e.stopPropagation(); setSelectedId(comp.id); }}
+          >
+            {renderComponent(comp)}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
